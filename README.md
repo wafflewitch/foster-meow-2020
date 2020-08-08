@@ -1,3 +1,5 @@
+FosterMeow: An app for animal foster parents to see their direct impact on their community. (Spectra 2020 hackathon project)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
