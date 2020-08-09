@@ -5,22 +5,44 @@ import AnimalContext from '../../context/animal/animalContext';
 const AnimalsAvailable = () => {
   const animalContext = useContext(AnimalContext);
 
-  const { animalsAvailable, getAnimalsAvailable, clearAnimals } = animalContext;
+  const {
+    animalsAvailable,
+    getAnimalsAvailable,
+    clearAnimals,
+    animalsStatic,
+  } = animalContext;
 
   useEffect(() => {
-    clearAnimals();
     getAnimalsAvailable();
     // eslint-disable-next-line
+    return function cleanup() {
+      clearAnimals();
+    };
   }, []);
 
-  console.log(animalsAvailable);
+  // return (
+  //   <Fragment>
+  //     <h2>Animals Available for Fostering</h2>
+  //     <div className='container animals-container'>
+  //       {animalsAvailable !== null ? (
+  //         animalsAvailable.map((animal) => (
+  //           <AnimalObject key={animal._id} animal={animal} />
+  //         ))
+  //       ) : (
+  //         <h3>There are no animals available at this time.</h3>
+  //       )}
+  //     </div>
+  //   </Fragment>
+  // );
 
   return (
     <Fragment>
       <h2>Animals Available for Fostering</h2>
       <div className='container animals-container'>
-        {animalsAvailable !== null ? (
-          animalsAvailable.map((animal) => <AnimalObject animal={animal} />)
+        {animalsStatic !== null ? (
+          animalsStatic.map((animal) => (
+            <AnimalObject key={animal.id} animal={animal} />
+          ))
         ) : (
           <h3>There are no animals available at this time.</h3>
         )}

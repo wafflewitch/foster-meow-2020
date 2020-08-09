@@ -9,11 +9,11 @@ const Animal = require('../models/Animal');
 // @route       GET api/animals
 // @desc        Get all animals belonging to user
 // @access      Private
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // Sort user's animals by most recent
     const animals = await Animal.find({
-      user: req.user.id,
+      name: { $exists: true },
     }).sort({
       date: -1,
     });

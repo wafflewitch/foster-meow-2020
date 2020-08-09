@@ -20,6 +20,8 @@ export default (state, action) => {
       return {
         ...state,
         animalsAvailable: action.payload,
+        userAnimalsCurrent: null,
+        userAnimalsPrevious: null,
       };
     case GET_USER_ANIMALS_CURRENT:
       return {

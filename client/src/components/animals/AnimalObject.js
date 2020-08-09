@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const AnimalObject = ({ animal }) => {
   const {
@@ -27,10 +26,6 @@ const AnimalObject = ({ animal }) => {
       <p>{animal.temperament}</p>
     </div>
   );
-};
-
-AnimalObject.propTypes = {
-  animal: PropTypes.object.isRequired,
 };
 
 export default AnimalObject;
