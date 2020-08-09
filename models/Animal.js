@@ -26,12 +26,10 @@ const AnimalSchema = mongoose.Schema({
   },
   in_foster: {
     type: Boolean,
-    required: true,
     default: false,
   },
   adopted: {
     type: Boolean,
-    required: true,
     default: false,
   },
   date: {

@@ -2,7 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const AnimalObject = ({ animal }) => {
-  const { _id, name, age, temperament, image, in_foster, adopted } = animal;
+  const {
+    _id,
+    name,
+    age,
+    temperament,
+    image,
+    in_foster,
+    adopted,
+    available,
+    user,
+  } = animal;
 
   return (
     <div className='card bg-light'>

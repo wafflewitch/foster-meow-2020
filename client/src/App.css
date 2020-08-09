@@ -2,9 +2,10 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
-  --dark-color: #333333;
+  --primary-color: #a1c181;
+  --dark-color: #333745;
   --light-color: #f4f4f4;
+  --btn-color: #fcca46;
   --danger-color: #dc3545;
   --success-color: #28a745;
 }
@@ -185,7 +186,7 @@ img {
 
 .btn {
   display: inline-block;
-  background: var(--light-color);
+  background: var(--btn-color);
   color: #333;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
@@ -194,6 +195,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: 20px;
 }
 
 .btn-link {
@@ -231,11 +233,14 @@ img {
   color: #333;
 }
 
+.bg-primary {
+  background: var(--primary-color);
+}
+
 .btn-primary,
-.bg-primary,
 .badge-primary,
 .alert-primary {
-  background: var(--primary-color);
+  background: var(--btn-color);
   color: #fff;
 }
 
@@ -371,7 +376,7 @@ table th {
 }
 
 .navbar a {
-  color: #fff;
+  color: #333745;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }

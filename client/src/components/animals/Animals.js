@@ -1,24 +1,56 @@
 import React, { Fragment, useContext, useEffect } from 'react';
+import AnimalObject from '../../components/animals/AnimalObject';
 import AnimalContext from '../../context/animal/animalContext';
 
 const Animals = () => {
   const animalContext = useContext(AnimalContext);
 
-  const { animals } = animalContext;
+  const {
+    userAnimalsCurrent,
+    getUserAnimalsCurrent,
+    userAnimalsPrevious,
+    getUserAnimalsPrevious,
+  } = animalContext;
+
+  useEffect(() => {
+    getUserAnimalsCurrent();
+    getUserAnimalsPrevious();
+    // eslint-disable-next-line
+  }, []);
+
+  // console.log(userAnimalsPrevious);
+
+  const fostersCurrent = (
+    <Fragment>
+      <h2>Current Fosters</h2>
+      <div className='container animals-container'>
+        {userAnimalsCurrent !== null ? (
+          userAnimalsCurrent.map((animal) => <AnimalObject animal={animal} />)
+        ) : (
+          <h3>You have no current fosters.</h3>
+        )}
+      </div>
+    </Fragment>
+  );
+
+  const fostersPrevious = (
+    <Fragment>
+      <h2>Previous Fosters</h2>
+      <div className='container animals-container'>
+        {userAnimalsPrevious !== null ? (
+          userAnimalsPrevious.map((animal) => <AnimalObject animal={animal} />)
+        ) : (
+          <h3>You have no previous fosters.</h3>
+        )}
+      </div>
+    </Fragment>
+  );
 
   return (
-    <Fragment>
-      {animals.map((animal) => (
-        <div className='card bg-light'>
-          <span>
-            <img src={animal.image} alt='' />
-          </span>
-          <p>{animal.name}</p>
-          <p>{animal.age}</p>
-          <p>{animal.temperament}</p>
-        </div>
-      ))}
-    </Fragment>
+    <div>
+      {fostersCurrent}
+      {fostersPrevious}
+    </div>
   );
 };
 

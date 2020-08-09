@@ -14,7 +14,12 @@ const Navbar = ({ title, icon }) => {
 
   const authLinks = (
     <Fragment>
-      <li>Hello {user && user.name}</li>
+      <li>
+        <Link to='/'>My Fosters</Link>
+      </li>
+      <li>
+        <Link to='/available'>Select New Foster</Link>
+      </li>
       <li>
         <a href='#!' onClick={onLogOut}>
           <span className='hide-sm'>Log Out</span>

@@ -14,7 +14,7 @@ app.get('/', (req, res) => res.json({ message: 'Hello world!' }));
 // Define routes
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
-// app.use('/api/contacts', require('./routes/animals'));
+app.use('/api/animals', require('./routes/animals'));
 
 const PORT = process.env.PORT || 5000;
 
