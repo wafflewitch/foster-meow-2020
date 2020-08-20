@@ -34,7 +34,7 @@ const AnimalSchema = mongoose.Schema({
   },
   available: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   date: {
     type: Date,
