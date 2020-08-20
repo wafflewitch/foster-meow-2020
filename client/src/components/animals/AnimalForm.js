@@ -19,7 +19,6 @@ const AnimalForm = () => {
     setAnimal({ ...animal, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
-    e.preventDefault();
     addAnimal(animal);
   };
 
@@ -54,8 +53,6 @@ const AnimalForm = () => {
         value={image}
         onChange={onChange}
       />
-      <input type='hidden' name='in_foster' value='false' />
-      <input type='hidden' name='adopted' value='false' />
       <div>
         <input
           type='submit'
