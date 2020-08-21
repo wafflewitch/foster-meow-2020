@@ -15,8 +15,9 @@ const AnimalForm = () => {
 
   const { name, age, temperament, image } = animal;
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setAnimal({ ...animal, [e.target.name]: e.target.value });
+  };
 
   const onSubmit = (e) => {
     addAnimal(animal);
