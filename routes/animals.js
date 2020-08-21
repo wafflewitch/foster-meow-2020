@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
 const User = require('../models/User');
 const Animal = require('../models/Animal');
@@ -28,20 +28,20 @@ router.get('/', async (req, res) => {
 // @desc        Add an animal to the database
 // @access      Private
 router.post(
-  '/animals',
-  [
-    check('name', 'Name is required').not().isEmpty(),
-    check('age', 'Age is required').not().isEmpty(),
-    check('temperament', 'Temperament is required').not().isEmpty(),
-    check('image', 'Image is required').not().isEmpty(),
-  ],
+  '/',
+  // [
+  //   check('name', 'Name is required').not().isEmpty(),
+  //   check('age', 'Age is required').not().isEmpty(),
+  //   check('temperament', 'Temperament is required').not().isEmpty(),
+  //   check('image', 'Image is required').not().isEmpty(),
+  // ],
   async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) {
+    //   return res.status(400).json({ errors: errors.array() });
+    // }
 
-    const { name, age, temperament, image, in_foster, adopted } = req.body;
+    const { name, age, temperament, image } = req.body;
 
     try {
       // Create an animal instance
@@ -50,8 +50,6 @@ router.post(
         age,
         temperament,
         image,
-        in_foster,
-        adopted,
       });
 
       const animal = await newAnimal.save();
