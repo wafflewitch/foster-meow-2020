@@ -20,6 +20,8 @@ const AnimalForm = () => {
   };
 
   const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(animal);
     addAnimal(animal);
   };
 
