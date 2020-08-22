@@ -30,14 +30,16 @@ const Animals = () => {
   const fostersCurrent = (
     <Fragment>
       <h2>Current Fosters</h2>
-      <div className='container animals-container'>
-        {userAnimalsCurrent !== null ? (
-          userAnimalsCurrent.map((animal) => (
-            <AnimalObject key={animal._id} animal={animal} />
-          ))
-        ) : (
-          <h3>You have no current fosters.</h3>
-        )}
+      <div className='container'>
+        <div style={animalCardStyle}>
+          {userAnimalsCurrent !== null ? (
+            userAnimalsCurrent.map((animal) => (
+              <AnimalObject key={animal._id} animal={animal} />
+            ))
+          ) : (
+            <h3>You have no current fosters.</h3>
+          )}
+        </div>
       </div>
     </Fragment>
   );
@@ -45,14 +47,16 @@ const Animals = () => {
   const fostersPrevious = (
     <Fragment>
       <h2>Previous Fosters</h2>
-      <div className='container animals-container'>
-        {userAnimalsPrevious !== null ? (
-          userAnimalsPrevious.map((animal) => (
-            <AnimalObject key={animal._id} animal={animal} />
-          ))
-        ) : (
-          <h3>You have no previous fosters.</h3>
-        )}
+      <div className='container'>
+        <div style={animalCardStyle}>
+          {userAnimalsPrevious !== null ? (
+            userAnimalsPrevious.map((animal) => (
+              <AnimalObject key={animal._id} animal={animal} />
+            ))
+          ) : (
+            <h3>You have no previous fosters.</h3>
+          )}
+        </div>
       </div>
     </Fragment>
   );
@@ -78,6 +82,12 @@ const Animals = () => {
       {fostersPrevious}
     </div>
   );
+};
+
+const animalCardStyle = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gridGap: '1rem',
 };
 
 export default Animals;

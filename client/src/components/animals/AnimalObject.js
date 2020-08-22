@@ -14,14 +14,14 @@ const AnimalObject = ({ animal }) => {
   } = animal;
 
   return (
-    <div className='card bg-light'>
+    <div className='card text-center bg-light'>
       <img
         src={animal.image}
         alt=''
-        className='round-img'
-        style={{ width: '60px' }}
+        className='animal-img'
+        style={{ width: '150px' }}
       />
-      <p>{animal.name}</p>
+      <h2 style={{ color: '#70964a' }}>{animal.name}</h2>
       <p>{animal.age}</p>
       <p>{animal.temperament}</p>
     </div>

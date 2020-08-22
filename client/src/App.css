@@ -22,20 +22,6 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.container {
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
 }
 
 a {
@@ -56,12 +42,12 @@ img {
 }
 
 /* Utilities */
-/* .container {
+.container {
   max-width: 1100px;
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-} */
+}
 
 /* Text Styles*/
 .x-large {
@@ -315,6 +301,10 @@ img {
 
 .round-img {
   border-radius: 50%;
+}
+
+.animal-img {
+  border-radius: 20px;
 }
 
 /* Forms */
