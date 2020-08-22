@@ -11,11 +11,11 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
-    case GET_ANIMALS:
-      return {
-        ...state,
-        animals: action.payload,
-      };
+    // case GET_ANIMALS:
+    //   return {
+    //     ...state,
+    //     animals: action.payload,
+    //   };
     case GET_ANIMALS_AVAILABLE:
       return {
         ...state,
@@ -36,20 +36,12 @@ export default (state, action) => {
     case ADD_ANIMAL:
       return {
         ...state,
-        animals: [action.payload, ...state.animals],
-      };
-    case UPDATE_ANIMAL:
-      return {
-        ...state,
-        animals: state.animals.map((animal) =>
-          animal._id === action.payload._id ? action.payload : animal
-        ),
+        animalsAvailable: [action.payload, ...state.animalsAvailable],
       };
     case CLEAR_ANIMALS:
       return {
         ...state,
-        animals: null,
-        animalsAvailable: null,
+        animalsAvailable: [],
         userAnimalsCurrent: null,
         userAnimalsPrevious: null,
       };
