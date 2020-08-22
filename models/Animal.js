@@ -12,12 +12,10 @@ const AnimalSchema = mongoose.Schema({
   age: {
     type: String,
     required: true,
-    unique: true,
   },
   temperament: {
     type: String,
     required: true,
-    default: 'playful',
   },
   image: {
     type: String,
