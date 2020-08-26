@@ -48,7 +48,7 @@ const Animals = () => {
     <Fragment>
       <h2>Previous Fosters</h2>
       <div className='container'>
-        <div style={animalCardStyle}>
+        <div>
           {userAnimalsPrevious !== null ? (
             userAnimalsPrevious.map((animal) => (
               <AnimalObject key={animal._id} animal={animal} />

@@ -40,10 +40,16 @@ const Navbar = ({ title, icon }) => {
   );
 
   return (
-    <div className='navbar bg-primary'>
-      <h1>{title}</h1>
-      <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
-    </div>
+    <nav>
+      <div className='light-green lighten-1 nav-wrapper'>
+        <a href='#' className='brand-logo'>
+          {title} <i className='material-icons'>pets</i>
+        </a>
+        <ul id='nav-mobile' className='right hide-on-med-and-down'>
+          {isAuthenticated ? authLinks : guestLinks}
+        </ul>
+      </div>
+    </nav>
   );
 };
 
