@@ -41,13 +41,14 @@ const Navbar = ({ title, icon }) => {
 
   return (
     <nav>
-      <div className='light-green lighten-1 nav-wrapper'>
+      <div className='navbar bg-primary'>
         <a href='#' className='brand-logo'>
-          {title} <i className='material-icons'>pets</i>
+          <h2>
+            <i className='material-icons md-18'>pets</i> {title}{' '}
+            <i className='material-icons md-18'>pets</i>
+          </h2>
         </a>
-        <ul id='nav-mobile' className='right hide-on-med-and-down'>
-          {isAuthenticated ? authLinks : guestLinks}
-        </ul>
+        <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
       </div>
     </nav>
   );
