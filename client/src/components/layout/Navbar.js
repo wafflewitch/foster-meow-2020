@@ -6,10 +6,10 @@ import AuthContext from '../../context/auth/authContext';
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
 
-  const { isAuthenticated, logOut, user } = authContext;
+  const { isAuthenticated, logOut } = authContext;
 
   const onLogOut = () => {
-    authContext.logOut();
+    logOut();
   };
 
   const authLinks = (
@@ -42,9 +42,10 @@ const Navbar = ({ title, icon }) => {
   return (
     <nav>
       <div className='navbar bg-primary'>
-        <a href='#' className='brand-logo'>
+        <a href='#!' className='brand-logo'>
           <h2>
-            <i className='material-icons md-18'>pets</i> {title}{' '}
+            <i className='material-icons md-18'>pets</i>
+            {title}
             <i className='material-icons md-18'>pets</i>
           </h2>
         </a>
@@ -59,7 +60,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title: 'Foster Meow',
+  title: ' Foster Meow ',
 };
 
 export default Navbar;

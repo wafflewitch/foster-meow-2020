@@ -6,7 +6,7 @@ import AuthContext from '../../context/auth/authContext';
 const Home = () => {
   const authContext = useContext(AuthContext);
 
-  const { isAuthenticated, user } = authContext;
+  const { isAuthenticated } = authContext;
 
   useEffect(() => {
     authContext.loadUser();
@@ -15,8 +15,15 @@ const Home = () => {
 
   const guestView = (
     <Fragment>
-      <div>
-        <AnimalsAvailable />
+      <div className='splash container text-center'>
+        <div className='text-primary lead'>
+          <h1>Welcome to Foster Meow!</h1>
+        </div>
+        <div className='text-dark'>
+          <p>We help YOU get into animal fostering!</p>
+          <p>Register now to see animals in need and get started!</p>
+          <p>Your local furry friends will thank you!</p>
+        </div>
       </div>
     </Fragment>
   );
