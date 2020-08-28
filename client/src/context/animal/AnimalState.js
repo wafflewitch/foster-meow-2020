@@ -107,7 +107,8 @@ const AnimalState = (props) => {
         adopted: false,
       },
     ],
-    userAnimalsCurrent: null,
+    animals: [],
+    userAnimalsCurrent: [],
     userAnimalsPrevious: null,
     animalsAvailable: [],
     // ^^^^^ Changed this to an array due to an error about it previously not being iterable.
@@ -116,15 +117,15 @@ const AnimalState = (props) => {
   const [state, dispatch] = useReducer(AnimalReducer, initialState);
 
   // Get animals
-  // const getAnimals = async () => {
-  //   try {
-  //     const res = await axios.get('api/animals');
+  const getAnimals = async () => {
+    try {
+      const res = await axios.get('api/animals');
 
-  //     dispatch({ type: GET_ANIMALS, payload: res.data });
-  //   } catch (err) {
-  //     dispatch({ type: ANIMAL_ERROR, payload: err.response.msg });
-  //   }
-  // };
+      dispatch({ type: GET_ANIMALS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: ANIMAL_ERROR, payload: err.response.msg });
+    }
+  };
 
   // Get animals available for fostering
   const getAnimalsAvailable = async () => {
@@ -133,7 +134,12 @@ const AnimalState = (props) => {
 
       const animals = res.data.filter((animal) => animal.available == true);
 
-      dispatch({ type: GET_ANIMALS_AVAILABLE, payload: res.data });
+      // console.log('res.data is:');
+      // console.log(res.data);
+      console.log('filtered animals array is:');
+      console.log(animals);
+
+      dispatch({ type: GET_ANIMALS_AVAILABLE, payload: animals });
     } catch (err) {
       dispatch({ type: ANIMAL_ERROR, payload: err.response.msg });
     }
@@ -181,20 +187,26 @@ const AnimalState = (props) => {
   };
 
   // Update animal
-  // const updateAnimal = async (animal) => {
-  //   const config = {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   };
+  const updateAnimal = async (animal) => {
+    console.log(animal);
 
-  //   try {
-  //     const res = await axios.put(`/api/animals/${animal._id}`, animal, config);
-  //     dispatch({ type: UPDATE_ANIMAL, payload: res.data });
-  //   } catch (err) {
-  //     dispatch({ type: ANIMAL_ERROR, payload: err.response.msg });
-  //   }
-  // };
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    try {
+      const res = await axios.put(`api/animals/${animal._id}`, animal, config);
+
+      console.log(res.data);
+
+      dispatch({ type: UPDATE_ANIMAL, payload: res.data });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: ANIMAL_ERROR, payload: err.response.msg });
+    }
+  };
 
   // Clear animals
   const clearAnimals = () => {
@@ -208,12 +220,13 @@ const AnimalState = (props) => {
         animalsAvailable: state.animalsAvailable,
         userAnimalsCurrent: state.userAnimalsCurrent,
         userAnimalsPrevious: state.userAnimalsPrevious,
-        // getAnimals,
+        animals: state.animals,
+        getAnimals,
         getAnimalsAvailable,
         getUserAnimalsCurrent,
         getUserAnimalsPrevious,
         addAnimal,
-        // updateAnimal,
+        updateAnimal,
         clearAnimals,
       }}
     >

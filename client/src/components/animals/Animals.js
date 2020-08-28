@@ -12,7 +12,6 @@ const Animals = () => {
     getUserAnimalsPrevious,
     // animalsAvailable,
     // getAnimalsAvailable,
-    clearAnimals,
   } = animalContext;
 
   useEffect(() => {
@@ -20,9 +19,6 @@ const Animals = () => {
     getUserAnimalsPrevious();
     // getAnimalsAvailable();
     // eslint-disable-next-line
-    return function cleanup() {
-      clearAnimals();
-    };
   }, []);
 
   // console.log(userAnimalsPrevious);

@@ -64,14 +64,18 @@ router.post(
 
 // @route       PUT api/animals/:id
 // @desc        Update an animal
-// @access      Private
+// @access      Public
 router.put('/:id', auth, async (req, res) => {
-  const { in_foster, adopted } = req.body;
+  console.log(req.body);
+
+  const { available, in_foster, adopted, user } = req.body;
 
   // Build Animal object
   const animalFields = {
-    in_foster: false,
-    adopted: true,
+    available: available,
+    in_foster: in_foster,
+    adopted: adopted,
+    user: user,
   };
 
   try {
@@ -79,10 +83,10 @@ router.put('/:id', auth, async (req, res) => {
 
     if (!animal) return res.status(404).json({ msg: 'Animal not found.' });
 
-    // Makre sure User owns Contact
-    if (animal.user.toString() !== req.user.id) {
-      return res.status(401).json({ msg: 'Not authorized' });
-    }
+    // Make sure User owns Contact
+    // if (animal.user.toString() !== req.user.id) {
+    //   return res.status(401).json({ msg: 'Not authorized' });
+    // }
 
     animal = await Animal.findByIdAndUpdate(
       req.params.id,
